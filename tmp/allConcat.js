@@ -11,6 +11,6 @@ $(function() {
     var numVowels = entry.numVowels(true);
     var numConsonants = entry.numVowels(false);
     var getTeaser = entry.getTeaser();
-    $('#output').append(entry.title + entry.body + numWords + " " + numVowels + " " + numConsonants + " " + getTeaser)
+    $('#output').append("Title: " + entry.title + " " + "Body: " + entry.body + numWords + " " + numVowels + " " + numConsonants + " " + getTeaser)
   })
 })
