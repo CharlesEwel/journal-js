@@ -31,13 +31,13 @@ Entry.prototype.numVowels = function(returnVowels) {
 Entry.prototype.getTeaser = function(){
   var bodyText = this.body.split(" ");
   var punctuation = [".", "!", "?"];
-  var firstSentenceLength=8;
-  for(i=0; i<8; i++)
-  {
+  var bodyLength = Math.min(8, bodyText.length)
+  var firstSentenceLength=bodyLength;
+  for(i=0; i<bodyLength; i++) {
     var lastChar = bodyText[i].substr(bodyText[i].length-1);
-    if(punctuation.includes(lastChar))
-    {
+    if(punctuation.includes(lastChar)) {
       firstSentenceLength=i+1;
+      break;
     }
   }
   var outputArray = [];
@@ -48,3 +48,5 @@ Entry.prototype.getTeaser = function(){
   output=outputArray.join(" ")
   return output;
 };
+
+exports.entryModule = Entry;
