@@ -27,3 +27,24 @@ Entry.prototype.numVowels = function(returnVowels) {
     return consonants;
   }
 };
+
+Entry.prototype.getTeaser = function(){
+  var bodyText = this.body.split(" ");
+  var punctuation = [".", "!", "?"];
+  var firstSentenceLength=8;
+  for(i=0; i<8; i++)
+  {
+    var lastChar = bodyText[i].substr(bodyText[i].length-1);
+    if(punctuation.includes(lastChar))
+    {
+      firstSentenceLength=i+1;
+    }
+  }
+  var outputArray = [];
+  for(i=0; i<firstSentenceLength; i++)
+  {
+    outputArray.push(bodyText[i]);
+  }
+  output=outputArray.join(" ")
+  return output;
+};
